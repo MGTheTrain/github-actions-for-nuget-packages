@@ -19,3 +19,4 @@ jobs:
           SNYK_ORGANIZATION_ID: ${{ secrets.SNYK_ORGANIZATION_ID }}
           SRC_WORKING_DIRECTORY: ./src/CommonLib
           TEST_SRC_WORKING_DIRECTORY: ./src
+          
