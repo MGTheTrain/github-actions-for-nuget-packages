@@ -36,7 +36,7 @@ jobs:
           SRC_WORKING_DIRECTORY: ./src/CommonLib
           TEST_WORKING_DIRECTORY: ./test
       - name: Build and push nuget package
-        uses: MGTheTrain/github-actions/.github/actions/build-and-push-pip-packages@main
+        uses: MGTheTrain/github-actions/.github/actions/build-and-push-nuget-packages@main
         with:
           CLOUDSMITH_REPOSITORY: ${{ secrets.CLOUDSMITH_REPOSITORY }}
           CLOUDSMITH_API_KEY: ${{ secrets.CLOUDSMITH_API_KEY }}
