@@ -1,0 +1,21 @@
+name: CI/CT workflow for C# libraries
+
+on:
+  pull_request:
+    branches:
+      - develop
+      - master
+
+jobs:
+  ci-ct-job-for-csharp-libraries:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@master
+      - name: Test C# repository
+        uses: MGTheTrain/github-actions/.github/actions/test-csharp-repository@main
+        with:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+          SNYK_ORGANIZATION_ID: ${{ secrets.SNYK_ORGANIZATION_ID }}
+          SRC_WORKING_DIRECTORY: ./src/CommonLib
+          TEST_SRC_WORKING_DIRECTORY: ./src
