@@ -1,4 +1,4 @@
-name: CI/CT workflow for C# libraries packaged via pip
+name: CI/CT workflow for C# libraries packaged via nuget
 
 on:
   push:
