@@ -1,41 +1,52 @@
-using System;
-using System.ComponentModel.DataAnnotations;
+// <copyright file="UserRequestDto.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace CommonLib.Web.Dtos
 {
-    public class UserRequestDto: IDto
-    {
-        public string? userName { get; set; }
-        public string? userPassword { get; set; }
-        public string? email { get; set; }
+    using System;
+    using System.ComponentModel.DataAnnotations;
 
-                /// <summary>
-        /// Method for validating member attributes
+    public class UserRequestDto : IDto
+    {
+        public string? UserName { get; set; }
+
+        public string? UserPassword { get; set; }
+
+        public string? Email { get; set; }
+
+        /// <summary>
+        /// Method for validating member attributes.
         /// </summary>
         /// <params></params>
-        /// <returns>Returns IEnumerable<ValidationResult></returns>
+        /// <returns>Returns IEnumerable.<ValidationResult></returns>
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
-            if (userName == null || userName.Length > 50){
-                yield return new ValidationResult($"{nameof(UserResponseDto)}.{nameof(userName)} can't be empty or exceed 50 characters");
-            }
-            if (userPassword == null || userPassword.Length < 10){
-                yield return new ValidationResult($"{nameof(UserResponseDto)}.{nameof(userPassword)} can't be empty or less then 10 characters");
-            }
-            if (email == null){
-                yield return new ValidationResult($"{nameof(UserResponseDto)}.{nameof(email)} can't be empty");
+            if (this.UserName == null || this.UserName.Length > 50)
+            {
+                yield return new ValidationResult($"{nameof(UserResponseDto)}.{nameof(this.UserName)} can't be empty or exceed 50 characters");
             }
 
-            int specialCharCount = userPassword!.Count(c => !char.IsLetterOrDigit(c));
-            int digitCount = userPassword!.Count(char.IsDigit);
-            int upperCount = userPassword!.Count(char.IsUpper);
-            int lowerCount = userPassword!.Count(char.IsLower);
+            if (this.UserPassword == null || this.UserPassword.Length < 10)
+            {
+                yield return new ValidationResult($"{nameof(UserResponseDto)}.{nameof(this.UserPassword)} can't be empty or less then 10 characters");
+            }
+
+            if (this.Email == null)
+            {
+                yield return new ValidationResult($"{nameof(UserResponseDto)}.{nameof(this.Email)} can't be empty");
+            }
+
+            int specialCharCount = this.UserPassword!.Count(c => !char.IsLetterOrDigit(c));
+            int digitCount = this.UserPassword!.Count(char.IsDigit);
+            int upperCount = this.UserPassword!.Count(char.IsUpper);
+            int lowerCount = this.UserPassword!.Count(char.IsLower);
 
             if (specialCharCount < 4 || digitCount < 2 || upperCount < 2 || lowerCount < 2)
             {
-                yield return new ValidationResult($"{nameof(UserRequestDto)}.{nameof(userPassword)} does not meet complexity requirements.");
+                yield return new ValidationResult($"{nameof(UserRequestDto)}.{nameof(this.UserPassword)} does not meet complexity requirements.");
             }
-            
+
             yield return ValidationResult.Success;
         }
     }

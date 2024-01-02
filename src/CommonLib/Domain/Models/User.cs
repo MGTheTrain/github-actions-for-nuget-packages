@@ -1,53 +1,73 @@
-using System;
-using System.ComponentModel.DataAnnotations;
+// <copyright file="User.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace CommonLib.Domain.Models
 {
-    public class User: IModel
+    using System;
+    using System.ComponentModel.DataAnnotations;
+
+    public class User : IModel
     {
-        public Guid? userId { get; set; }
-        public string? userName { get; set; }
-        public string? userPassword { get; set; }
-        public string? email { get; set; }
-        public DateTime? dateTimeCreated { get; set; }
-        public DateTime? dateTimeUpdated { get; set; }
+        public Guid? UserId { get; set; }
+
+        public string? UserName { get; set; }
+
+        public string? UserPassword { get; set; }
+
+        public string? Email { get; set; }
+
+        public DateTime? DateTimeCreated { get; set; }
+
+        public DateTime? DateTimeUpdated { get; set; }
 
         /// <summary>
-        /// Method for validating member attributes
+        /// Method for validating member attributes.
         /// </summary>
         /// <params></params>
-        /// <returns>Returns IEnumerable<ValidationResult></returns>
+        /// <returns>Returns IEnumerable.<ValidationResult></returns>
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
-            if (userId == null){
-                yield return new ValidationResult($"{nameof(User)}.{nameof(userId)} can't be empty");
-            }
-            if (userName == null || userName.Length > 50){
-                yield return new ValidationResult($"{nameof(User)}.{nameof(userName)} can't be empty or exceed 50 characters");
-            }
-            if (userPassword == null || userPassword.Length < 10){
-                yield return new ValidationResult($"{nameof(User)}.{nameof(userPassword)} can't be empty or less then 10 characters");
-            }
-            if (email == null){
-                yield return new ValidationResult($"{nameof(User)}.{nameof(email)} can't be empty");
-            }
-            if (dateTimeCreated == null){
-                yield return new ValidationResult($"{nameof(User)}.{nameof(dateTimeCreated)} can't be empty");
-            }
-            if (dateTimeUpdated == null){
-                yield return new ValidationResult($"{nameof(User)}.{nameof(dateTimeUpdated)} can't be empty");
+            if (this.UserId == null)
+            {
+                yield return new ValidationResult($"{nameof(User)}.{nameof(this.UserId)} can't be empty");
             }
 
-            int specialCharCount = userPassword!.Count(c => !char.IsLetterOrDigit(c));
-            int digitCount = userPassword!.Count(char.IsDigit);
-            int upperCount = userPassword!.Count(char.IsUpper);
-            int lowerCount = userPassword!.Count(char.IsLower);
+            if (this.UserName == null || this.UserName.Length > 50)
+            {
+                yield return new ValidationResult($"{nameof(User)}.{nameof(this.UserName)} can't be empty or exceed 50 characters");
+            }
+
+            if (this.UserPassword == null || this.UserPassword.Length < 10)
+            {
+                yield return new ValidationResult($"{nameof(User)}.{nameof(this.UserPassword)} can't be empty or less then 10 characters");
+            }
+
+            if (this.Email == null)
+            {
+                yield return new ValidationResult($"{nameof(User)}.{nameof(this.Email)} can't be empty");
+            }
+
+            if (this.DateTimeCreated == null)
+            {
+                yield return new ValidationResult($"{nameof(User)}.{nameof(this.DateTimeCreated)} can't be empty");
+            }
+
+            if (this.DateTimeUpdated == null)
+            {
+                yield return new ValidationResult($"{nameof(User)}.{nameof(this.DateTimeUpdated)} can't be empty");
+            }
+
+            int specialCharCount = this.UserPassword!.Count(c => !char.IsLetterOrDigit(c));
+            int digitCount = this.UserPassword!.Count(char.IsDigit);
+            int upperCount = this.UserPassword!.Count(char.IsUpper);
+            int lowerCount = this.UserPassword!.Count(char.IsLower);
 
             if (specialCharCount < 4 || digitCount < 2 || upperCount < 2 || lowerCount < 2)
             {
-                yield return new ValidationResult($"{nameof(User)}.{nameof(userPassword)} does not meet complexity requirements.");
+                yield return new ValidationResult($"{nameof(User)}.{nameof(this.UserPassword)} does not meet complexity requirements.");
             }
-            
+
             yield return ValidationResult.Success;
         }
     }
