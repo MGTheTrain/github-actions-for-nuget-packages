@@ -1,3 +1,7 @@
+// <copyright file="FileNotFoundException.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
 namespace CommonLib.Exceptions
 {
     /// <summary>
@@ -5,7 +9,8 @@ namespace CommonLib.Exceptions
     /// </summary>
     public class FileNotFoundException : Exception
     {
-        public FileNotFoundException(string message) : base(message)
+        public FileNotFoundException(string message)
+            : base(message)
         {
         }
     }

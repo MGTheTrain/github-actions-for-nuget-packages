@@ -1,21 +1,29 @@
-using System;
-using System.ComponentModel.DataAnnotations;
+// <copyright file="UserResponseDto.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace CommonLib.Web.Dtos
 {
-    public class UserResponseDto: IDto
+    using System;
+    using System.ComponentModel.DataAnnotations;
+
+    public class UserResponseDto : IDto
     {
-        public Guid? userId { get; set; }
-        public string? userName { get; set; }
-        public string? email { get; set; }
-        public DateTime? dateTimeCreated { get; set; }
-        public DateTime? dateTimeUpdated { get; set; }
+        public Guid? UserId { get; set; }
+
+        public string? UserName { get; set; }
+
+        public string? Email { get; set; }
+
+        public DateTime? DateTimeCreated { get; set; }
+
+        public DateTime? DateTimeUpdated { get; set; }
 
         /// <summary>
-        /// Method for validating member attributes
+        /// Method for validating member attributes.
         /// </summary>
         /// <params></params>
-        /// <returns>Returns IEnumerable<ValidationResult></returns>
+        /// <returns>Returns IEnumerable.<ValidationResult></returns>
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
             throw new NotImplementedException();

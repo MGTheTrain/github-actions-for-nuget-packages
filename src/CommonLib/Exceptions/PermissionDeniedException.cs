@@ -1,3 +1,6 @@
+// <copyright file="PermissionDeniedException.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace CommonLib.Exceptions
 {
@@ -6,7 +9,8 @@ namespace CommonLib.Exceptions
     /// </summary>
     public class PermissionDeniedException : Exception
     {
-        public PermissionDeniedException(string message) : base(message)
+        public PermissionDeniedException(string message)
+            : base(message)
         {
         }
     }

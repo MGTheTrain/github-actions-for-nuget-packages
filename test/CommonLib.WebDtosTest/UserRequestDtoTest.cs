@@ -1,10 +1,13 @@
-using CommonLib.Web.Dtos;
-
-using System.ComponentModel.DataAnnotations;
-using System.Reflection;
+// <copyright file="UserRequestDtoTest.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace CommonLib.WebDtosTest
 {
+    using System.ComponentModel.DataAnnotations;
+    using System.Reflection;
+    using CommonLib.Web.Dtos;
+
     public class UserRequestDtosTests
     {
         [Fact]
@@ -32,5 +35,5 @@ namespace CommonLib.WebDtosTest
             Assert.True(isValid); // Ensure validation passes
             Assert.Empty(validationResults); // Ensure no validation errors
         }
-    }    
+    }
 }

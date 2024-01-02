@@ -1,3 +1,7 @@
+// <copyright file="InvalidFileException.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
 namespace CommonLib.Exceptions
 {
     /// <summary>
@@ -5,7 +9,8 @@ namespace CommonLib.Exceptions
     /// </summary>
     public class InvalidFileException : Exception
     {
-        public InvalidFileException(string message) : base(message)
+        public InvalidFileException(string message)
+            : base(message)
         {
         }
     }
