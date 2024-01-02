@@ -1,3 +1,7 @@
+// <copyright file="ConfigurationException.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
 namespace CommonLib.Exceptions
 {
     /// <summary>
@@ -5,7 +9,8 @@ namespace CommonLib.Exceptions
     /// </summary>
     public class ConfigurationException : Exception
     {
-        public ConfigurationException(string message) : base(message)
+        public ConfigurationException(string message)
+            : base(message)
         {
         }
     }

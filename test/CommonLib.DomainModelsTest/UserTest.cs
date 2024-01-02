@@ -1,10 +1,13 @@
-using CommonLib.Domain.Models;
-
-using System.ComponentModel.DataAnnotations;
-using System.Reflection;
+// <copyright file="UserTest.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace CommonLib.DomainModelsTest
 {
+    using System.ComponentModel.DataAnnotations;
+    using System.Reflection;
+    using CommonLib.Domain.Models;
+
     public class UserTests
     {
         [Fact]
@@ -38,5 +41,5 @@ namespace CommonLib.DomainModelsTest
             Assert.True(isValid); // Ensure validation passes
             Assert.Empty(validationResults); // Ensure no validation errors
         }
-    }    
+    }
 }
